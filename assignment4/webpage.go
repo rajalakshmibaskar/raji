@@ -4,8 +4,11 @@ import (
     "log"
     "net/http"
 )
-func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+func handler(W http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(W, "Welcome to my home page\n", r.URL.Path[1:])
+}
+func handler2(W http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(W, "hello world\n")
 }
 func main() {
     http.HandleFunc("/", handler)
